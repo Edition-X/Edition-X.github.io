@@ -1,0 +1,28 @@
+title: Edition-X
+description: Technical blog on DevOps, robotics, and AI
+author: Edition-X
+url: https://edition-x.github.io
+baseurl: ""
+
+markdown: kramdown
+theme: null
+
+plugins: []
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - .gitignore
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  - scope:
+      path: "_posts"
+      type: "posts"
+    values:
+      layout: "post"
