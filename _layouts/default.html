@@ -3,34 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="{{ site.author }}">
     <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-    <meta property="og:title" content="{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}">
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+    <!-- Open Graph -->
+    <meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}">
     <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
     <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-    <title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
-    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+    <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+    <meta property="og:image" content="{{ site.url }}/assets/images/profile.jpg">
+    <meta property="og:site_name" content="{{ site.title }}">
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:creator" content="@Daniel_Kelly89">
+    <meta name="twitter:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}">
+    <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    <meta name="twitter:image" content="{{ site.url }}/assets/images/profile.jpg">
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css?v={{ site.time | date: '%s' }}">
     <link rel="icon" type="image/png" href="{{ site.baseurl }}/assets/favicon.png">
     <link rel="shortcut icon" href="{{ site.baseurl }}/assets/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ site.url }}/feed.xml">
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
     <header class="site-header">
-        <div class="container">
-            <h1 class="site-title"><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
-            <nav class="site-nav">
-                <a href="{{ site.baseurl }}/">Home</a>
-                <a href="{{ site.baseurl }}/blog">Blog</a>
-                <a href="{{ site.baseurl }}/about">About</a>
+        <div class="container-wide">
+            <h1 class="site-title">
+                <a href="{{ site.baseurl }}/">
+                    <img src="{{ site.baseurl }}/assets/images/logo.png" alt="" class="logo-mark" aria-hidden="true" width="32" height="32">
+                    {{ site.title }}
+                </a>
+            </h1>
+            <nav class="site-nav" role="navigation" aria-label="Main">
+                <a href="{{ site.baseurl }}/" {% if page.url == '/' %}class="active"{% endif %}>Home</a>
+                <a href="{{ site.baseurl }}/blog" {% if page.url == '/blog.html' or page.url contains '/blog' %}class="active"{% endif %}>Blog</a>
+                <a href="{{ site.baseurl }}/about" {% if page.url == '/about.html' or page.url contains '/about' %}class="active"{% endif %}>About</a>
             </nav>
         </div>
     </header>
 
-    <main class="container">
+    <main id="main-content">
         {{ content }}
     </main>
 
     <footer class="site-footer">
-        <div class="container">
-            <p>&copy; {{ site.time | date: "%Y" }} {{ site.author }}. All rights reserved.</p>
+        <div class="container-wide">
+            <div class="footer-content">
+                <p class="footer-copyright">&copy; {{ site.time | date: "%Y" }} {{ site.author }}. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="https://github.com/Edition-X">GitHub</a>
+                    <a href="https://x.com/Daniel_Kelly89">X</a>
+                    <a href="{{ site.baseurl }}/blog">Blog</a>
+                    <a href="{{ site.baseurl }}/about">About</a>
+                </div>
+            </div>
         </div>
     </footer>
     {% if site.goatcounter %}
