@@ -1,6 +1,6 @@
 ---
 title: "How a Single EC2 Instance Runs Our Entire CI Pipeline"
-date: 2026-03-19
+date: 2026-03-20
 description: "One m7i.xlarge, four concurrent runners, zero image pull time. How we built a production CI pipeline for a robotics startup for less than $170/month."
 tags: [devops, github-actions, aws, ci-cd, robotics]
 ---
@@ -115,9 +115,9 @@ Start simple. You can always add complexity later. But you probably won't need t
 
 ---
 
-*This is **Part 1** of a series on building production-grade self-hosted GitHub Actions runners for a robotics startup. Coming up next:*
+**This is Part 1 of a series on building production-grade self-hosted GitHub Actions runners.** Coming up next:
 
-- ***Part 2:** We Replaced Packer With a 40-Line GitHub Actions Workflow — our zero-downtime AMI baking pipeline and the edge cases that nearly broke it*
-- ***Part 3:** Autoscaling GitHub Runners Without Webhooks — how a 170-line Lambda became our entire scaling layer*
-- ***Part 4:** From Shell Script to Python Runtime — how the runner bootstrap evolved over 7 months*
-- ***Part 5:** Safe Infrastructure Changes With a Team of One — dev/prod isolation and deployment gates without a platform team*
+- **Part 2:** We Replaced Packer With a 40-Line GitHub Actions Workflow — our zero-downtime AMI baking pipeline and the edge cases that nearly broke it
+- **Part 3:** Autoscaling GitHub Runners Without Webhooks — how a 170-line Lambda became our entire scaling layer
+- **Part 4:** From Shell Script to Python Runtime — how the runner bootstrap evolved over 7 months
+- **Part 5:** Safe Infrastructure Changes With a Team of One — dev/prod isolation and deployment gates without a platform team
