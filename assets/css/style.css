@@ -116,6 +116,14 @@ body {
     flex-shrink: 0;
 }
 
+.site-title .wordmark {
+    display: block;
+    height: 32px;
+    width: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
 .site-nav {
     display: flex;
     align-items: center;
