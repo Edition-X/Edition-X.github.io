@@ -4,10 +4,14 @@ author: Edition-X
 url: https://edition-x.github.io
 baseurl: ""
 
+# Analytics — set your GoatCounter account code after signing up at goatcounter.com
+# goatcounter: your-code-here
+
 markdown: kramdown
 theme: null
 
-plugins: []
+plugins:
+  - jekyll-sitemap
 
 exclude:
   - Gemfile

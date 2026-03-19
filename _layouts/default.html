@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    <meta property="og:title" content="{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}">
+    <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
     <title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+    <link rel="icon" type="image/png" href="{{ site.baseurl }}/assets/favicon.png">
+    <link rel="shortcut icon" href="{{ site.baseurl }}/assets/favicon.ico">
 </head>
 <body>
     <header class="site-header">
@@ -27,5 +33,9 @@
             <p>&copy; {{ site.time | date: "%Y" }} {{ site.author }}. All rights reserved.</p>
         </div>
     </footer>
+    {% if site.goatcounter %}
+    <script data-goatcounter="https://{{ site.goatcounter }}.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
+    {% endif %}
 </body>
 </html>
