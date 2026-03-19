@@ -1,17 +1,18 @@
 title: Edition-X
-description: Technical blog on DevOps, robotics, and AI
-author: Edition-X
+description: A technical blog by Daniel Kelly — DevOps, platform engineering, cloud infrastructure, and the systems that power modern software.
+author: Daniel Kelly
 url: https://edition-x.github.io
 baseurl: ""
 
 # Analytics — set your GoatCounter account code after signing up at goatcounter.com
-# goatcounter: your-code-here
+goatcounter: edition-x
 
 markdown: kramdown
 theme: null
 
 plugins:
   - jekyll-sitemap
+  - jekyll-feed
 
 exclude:
   - Gemfile
