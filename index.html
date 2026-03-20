@@ -1,0 +1,59 @@
+---
+layout: default
+title: Home
+---
+
+<div class="container">
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <p class="hero-greeting">Daniel Kelly — Edition-X</p>
+                <h2 class="hero-title">Engineering infrastructure that scales.</h2>
+                <p class="hero-description">
+                    Senior DevOps &amp; Platform Engineer. I write about the real engineering problems I solve — CI/CD pipelines, cloud architecture, edge devices, and the systems that keep production running.
+                </p>
+                <div class="hero-tags">
+                    <span class="hero-tag">DevOps</span>
+                    <span class="hero-tag">Platform Engineering</span>
+                    <span class="hero-tag">Cloud &amp; SRE</span>
+                    <span class="hero-tag">CI/CD</span>
+                    <span class="hero-tag">Edge &amp; Robotics</span>
+                </div>
+                <div class="hero-links">
+                    <a href="/blog" class="btn btn-primary">Read the Blog</a>
+                    <a href="/about" class="btn btn-secondary">About Me</a>
+                </div>
+            </div>
+            <div class="hero-avatar">
+                <img src="/assets/images/profile.jpg" alt="Daniel Kelly">
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <section class="section">
+        <div class="section-header">
+            <h2 class="section-title">Latest Posts</h2>
+            <a href="/blog" class="section-link">All posts</a>
+        </div>
+
+        {% for post in site.posts limit:3 %}
+        <article class="post-card">
+            <div class="post-card-meta">
+                <span class="post-card-date">{{ post.date | date: "%d %B %Y" }}</span>
+                {% if post.tags.first %}
+                <span class="post-card-tag">{{ post.tags.first }}</span>
+                {% endif %}
+            </div>
+            <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+            <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 35 }}</p>
+            <a href="{{ post.url }}" class="post-card-read-more">Read more</a>
+        </article>
+        {% endfor %}
+
+        {% if site.posts.size == 0 %}
+        <p>New posts coming soon. Stay tuned.</p>
+        {% endif %}
+    </section>
+</div>

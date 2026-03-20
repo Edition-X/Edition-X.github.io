@@ -3,5 +3,6 @@ _site/
 .jekyll-cache/
 .jekyll-metadata
 *.gem
-Gemfile.lock
 .DS_Store
+.claude/
+.env

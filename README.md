@@ -1,31 +1,33 @@
-# Edition-X Blog
+# Edition-X
 
-A minimal, professional technical blog built with Jekyll and GitHub Pages.
+A professional technical blog by Daniel Kelly, built with Jekyll and hosted on GitHub Pages.
 
-## Setup
+## Local Development
 
-### Local Development
-
-1. Install Ruby and Jekyll:
+1. Install Ruby 3.3.6 (via rbenv):
    ```bash
-   gem install jekyll bundler
+   rbenv install 3.3.6
+   rbenv local 3.3.6
    ```
 
 2. Install dependencies:
    ```bash
+   gem install bundler
    bundle install
    ```
 
 3. Serve locally:
    ```bash
-   bundle exec jekyll serve
+   bundle exec jekyll serve --livereload
    ```
 
    The site will be available at `http://localhost:4000`
 
-### Deployment
+## Deployment
 
-Push to the `main` branch of the `Edition-X.github.io` repository. GitHub Pages will automatically build and deploy the site.
+Push to the `main` branch. GitHub Pages automatically builds and deploys the site.
+
+New articles should be written on a feature branch and merged to `main` via pull request.
 
 ## Structure
 
@@ -33,35 +35,35 @@ Push to the `main` branch of the `Edition-X.github.io` repository. GitHub Pages 
 .
 ├── _config.yml           # Jekyll configuration
 ├── _layouts/
-│   ├── default.html      # Base layout for all pages
-│   └── post.html         # Layout for blog posts
+│   ├── default.html      # Base layout (SEO, nav, footer)
+│   └── post.html         # Blog post layout
 ├── _posts/               # Blog posts (YYYY-MM-DD-title.md)
 ├── assets/
-│   └── css/
-│       └── style.css     # Main stylesheet
-├── index.md              # Home page
-├── about.md              # About page
-├── blog.md               # Blog index
+│   ├── css/style.css     # Main stylesheet
+│   ├── images/           # Profile photo and images
+│   ├── favicon.png       # Favicon (PNG)
+│   └── favicon.ico       # Favicon (ICO)
+├── index.html            # Homepage
+├── about.html            # About page
+├── blog.html             # Blog listing
+├── 404.html              # Custom 404 page
+├── robots.txt            # Search engine directives
 └── Gemfile               # Ruby dependencies
 ```
 
 ## Adding Posts
 
-Create a new file in `_posts/` with the naming convention `YYYY-MM-DD-title.md`:
+Create a new branch and add a file in `_posts/` with the format `YYYY-MM-DD-title.md`:
 
 ```markdown
 ---
-layout: post
-title: Your Post Title
+title: "Your Post Title"
+date: YYYY-MM-DD
+description: "A short summary for SEO and social sharing."
+tags: [devops, aws]
 ---
 
 Your post content here.
 ```
 
-Posts will automatically appear on the blog index page.
-
-## Customization
-
-- Edit `_config.yml` to change site title, description, and author
-- Modify `assets/css/style.css` for styling changes
-- Update navigation links in `_layouts/default.html`
+Open a PR to merge to `main` — the post goes live once merged.
