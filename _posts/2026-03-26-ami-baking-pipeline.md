@@ -65,7 +65,7 @@ Here's what went wrong, roughly in the order I discovered it:
 
 **Inconsistent JSON output.** The AWS CLI's `--output json` flag formats things differently depending on whether there's one result or many. A single AMI ID comes back as a string, multiple come back as an array. The bash script was handling one case but not the other.
 
-That was 22 commits in a single day. Every time I'd fix one issue, the pipeline would get a little further and hit the next one. By the end of the day I had a working cleanup process, but the bash was getting messy. I knew I'd need to rewrite it properly at some point, but I had other priorities and it was working — I'll talk more about that migration in [Part 4](/blog/shell-script-to-python-runtime) of this series.
+That was 22 commits in a single day. Every time I'd fix one issue, the pipeline would get a little further and hit the next one. By the end of the day I had a working cleanup process, but the bash was getting messy. I knew I'd need to rewrite it properly at some point, but I had other priorities and it was working — I'll talk more about that migration in [Part 4](/2026/04/04/shell-script-to-python-runtime.html) of this series.
 
 ## The Safety Cap That Saved Us
 
@@ -89,7 +89,7 @@ The promotion itself is deliberately boring — it reads one SSM parameter and w
 
 ## What's Next
 
-This post covered the AMI pipeline — how we build it, what broke along the way, and how we promote changes safely from dev to prod. There's more to say about the bash-to-Python migration specifically: the runner bootstrap went through the same journey, and that rewrite touched a lot more than just the AMI cleanup code. I'll cover that properly in [Part 4](/blog/shell-script-to-python-runtime).
+This post covered the AMI pipeline — how we build it, what broke along the way, and how we promote changes safely from dev to prod. There's more to say about the bash-to-Python migration specifically: the runner bootstrap went through the same journey, and that rewrite touched a lot more than just the AMI cleanup code. I'll cover that properly in [Part 4](/2026/04/04/shell-script-to-python-runtime.html).
 
 But first — there's a question I've been dodging: how does the system know when to scale? We don't use webhooks. We don't use GitHub's built-in autoscaling. We have a Lambda function that runs every minute, checks how many runners are busy, and publishes a CloudWatch metric. The ASG scales off that metric. It's about 170 lines of code and it's been more reliable than any webhook-based approach I've seen.
 
@@ -99,6 +99,6 @@ But first — there's a question I've been dodging: how does the system know whe
 
 - ***Part 1:** [How a Single EC2 Instance Runs Our Entire CI Pipeline](/2026/03/20/single-ec2-entire-ci.html)*
 - ***Part 2:** We Replaced Packer With a GitHub Actions Workflow (you are here)*
-- ***Part 3:** Autoscaling GitHub Runners Without Webhooks — how a 170-line Lambda became our entire scaling layer*
-- ***Part 4:** From Shell Script to Python Runtime — how the runner bootstrap evolved over 7 months*
-- ***Part 5:** Safe Infrastructure Changes With a Team of One — dev/prod isolation and deployment gates without a platform team*
+- ***Part 3:** [Autoscaling GitHub Runners Without Webhooks](/2026/04/02/autoscaling-without-webhooks.html) — how a 170-line Lambda became our entire scaling layer*
+- ***Part 4:** [From Shell Script to Python Runtime](/2026/04/04/shell-script-to-python-runtime.html) — how the runner bootstrap evolved over 7 months*
+- ***Part 5:** [Safe Infrastructure Changes With a Team of One](/2026/04/06/safe-infra-changes-team-of-one.html) — dev/prod isolation and deployment gates without a platform team*
