@@ -117,7 +117,7 @@ Start simple. You can always add complexity later. But you probably won't need t
 
 **This is Part 1 of a series on building production-grade self-hosted GitHub Actions runners.** Coming up next:
 
-- **Part 2:** We Replaced Packer With a 40-Line GitHub Actions Workflow — our zero-downtime AMI baking pipeline and the edge cases that nearly broke it
-- **Part 3:** Autoscaling GitHub Runners Without Webhooks — how a 170-line Lambda became our entire scaling layer
-- **Part 4:** From Shell Script to Python Runtime — how the runner bootstrap evolved over 7 months
-- **Part 5:** Safe Infrastructure Changes With a Team of One — dev/prod isolation and deployment gates without a platform team
+- **Part 2:** [We Replaced Packer With a GitHub Actions Workflow](/2026/03/26/ami-baking-pipeline.html) — our zero-downtime AMI baking pipeline and the edge cases that nearly broke it
+- **Part 3:** [Autoscaling GitHub Runners Without Webhooks](/2026/04/02/autoscaling-without-webhooks.html) — how a 170-line Lambda became our entire scaling layer
+- **Part 4:** [From Shell Script to Python Runtime](/2026/04/04/shell-script-to-python-runtime.html) — how the runner bootstrap evolved over 7 months
+- **Part 5:** [Safe Infrastructure Changes With a Team of One](/2026/04/06/safe-infra-changes-team-of-one.html) — dev/prod isolation and deployment gates without a platform team

@@ -7,7 +7,7 @@ baseurl: ""
 # Analytics — set your GoatCounter account code after signing up at goatcounter.com
 goatcounter: edition-x
 
-future: true
+future: false
 markdown: kramdown
 theme: null
 
